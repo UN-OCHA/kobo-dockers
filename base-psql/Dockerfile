@@ -4,7 +4,8 @@ MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 
 #ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get -qq -y update && \
+RUN mkdir -p /etc/service/psql
+    apt-get -qq -y update && \
     apt-get install -qq -y \
     postgresql-9.3 \
     postgresql-client-9.3 \
