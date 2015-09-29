@@ -3,7 +3,7 @@ FROM teodorescuserban/kobo-base-psql:latest
 MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 
 COPY pg_hba.conf postgresql.conf /etc/postgresql/9.3/main/
-COPY run /etc/service/psql/
+COPY run_psql /etc/service/psql/run
 
 #COPY server.crt server.key /srv/
 
@@ -16,7 +16,7 @@ RUN mkdir -p /srv/backup /srv/db && \
 #    chown postgres:postgres /srv/server.* && \
 #    chmod 640 /srv/server.key && \
 
-VOLUME ["/srv/db", "/srv/backup"]
+VOLUME ["/srv/db"]
 EXPOSE 5432
 
 CMD ["/sbin/my_init"]
