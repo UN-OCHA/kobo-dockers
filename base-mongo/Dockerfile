@@ -6,12 +6,10 @@ COPY mongodb.list /etc/apt/sources.list.d/
 
 RUN apt-get -qq update && \
     apt-get -qq -y install \
-        mongodb-org-server
-        git \
-        build-essential && \
+        mongodb-org-server && \
     apt-get clean && \
-    /etc/my_init.d/00_regen_ssh_host_keys.sh && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    /etc/my_init.d/00_regen_ssh_host_keys.sh && \
     mkdir -p /etc/service/mongo && \
     touch /etc/service/mongo/run
 
