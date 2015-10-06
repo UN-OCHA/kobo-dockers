@@ -1,0 +1,43 @@
+rabbit:
+  # env_file:
+  #   - ./common.env
+  extends:
+    file: common.yml
+    service: rabbit
+
+psql:
+  extends:
+    file: common.yml
+    service: psql
+
+mongo:
+  extends:
+    file: common.yml
+    service: mongo
+
+dkobo:
+  extends:
+    file: common.yml
+    service: dkobo
+  links:
+    - psql
+    - mongo
+    - rabbit
+    - kobocat # ???
+  volumes:
+    - "./bigvol:/mnt"
+
+kobocat:
+  extends:
+    file: common.yml
+    service: kobocat
+  links:
+    - psql
+    - mongo
+    - rabbit
+    - dkobo # ???
+  volumes:
+    - "./bigvol:/mnt"
+
+
+
