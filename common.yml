@@ -42,9 +42,18 @@ dkobo:
   hostname: dkobo
   env_file:
     - env_common.env
-  #environment:
-  #  - MONGO_DATA=/srv/db
+    - env_kobo.env
   ports:
     - "0.0.0.0:5000:5000"
-  # volumes:
-  #  - ./vols/mongo:/srv/db"
+    - "0.0.0.0:8000:80"
+
+kobocat:
+  # image: teodorescuserban/kobo-dkobo:latest # still WIP
+  build: ./kobocat
+  hostname: kobocat
+  env_file:
+    - env_common.env
+    - env_kobocat.env
+  ports:
+    - "0.0.0.0:5001:5000"
+    - "0.0.0.0:8001:80"
