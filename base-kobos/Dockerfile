@@ -10,9 +10,13 @@ RUN apt-get -qq update && \
         libxslt1-dev \
         nodejs \
         npm \
-        python-pip \
         python2.7-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     mkdir -p /etc/service/wsgi && \
-    touch /etc/service/wsgi/run
+    touch /etc/service/wsgi/run && \
+    curl -s https://bootstrap.pypa.io/get-pip.py -o /get-pip.py && \
+    python /get-pip.py && \
+    rm /get-pip.py
+
+#        python-pip \
