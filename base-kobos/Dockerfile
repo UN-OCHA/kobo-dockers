@@ -4,6 +4,7 @@ MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 
 RUN apt-get -qq update && \
     apt-get -qq -y install \
+        libpq-dev \
         libxml2 \
         libxml2-dev \
         libxslt1-dev \
