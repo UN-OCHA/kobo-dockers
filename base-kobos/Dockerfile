@@ -13,6 +13,7 @@ RUN apt-get -qq update && \
         python2.7-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    ln -s /usr/bin/nodejs /usr/bin/node && \
     mkdir -p /etc/service/wsgi && \
     touch /etc/service/wsgi/run && \
     curl -s https://bootstrap.pypa.io/get-pip.py -o /get-pip.py && \

@@ -53,7 +53,7 @@ kobocat:
   hostname: kobocat
   env_file:
     - env_common.env
-    - env_kobocat.env
+    - env_kobocat_dev.env
   ports:
     - "0.0.0.0:5001:5000"
     - "0.0.0.0:8001:80"
