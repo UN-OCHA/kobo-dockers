@@ -11,7 +11,9 @@ RUN apt-get -qq update && \
     cd /srv/src && \
     git clone https://github.com/kobotoolbox/dkobo.git -b master koboform && \
     cd /srv/src/koboform && \
-    pip install -r requirements.txt && \
-    npm install bower && \
-    bower install --config.interactive=false --allow-root && \
-    npm install --save-dev
+    pip install -r requirements.txt
+
+# && \
+#    npm install bower && \
+#    bower install --config.interactive=false --allow-root && \
+#    npm install --save-dev
