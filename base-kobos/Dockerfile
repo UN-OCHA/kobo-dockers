@@ -10,6 +10,7 @@ RUN apt-get -qq update && \
         libxslt1-dev \
         nodejs \
         npm \
+        postgresql-client-9.3 \
         python2.7-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
