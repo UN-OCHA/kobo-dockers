@@ -6,7 +6,9 @@ MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 # because pylibmc is at the end of base.pip
 RUN apt-get -qq update && \
     apt-get -qq -y install \
-        libmemcached-dev && \
+        libmemcached-dev \
+        qgis \
+        python-qgis && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
