@@ -27,6 +27,8 @@ $PSQL_SINGLE <<< "CREATE DATABASE $PSQL_DB OWNER $PSQL_USER" > /dev/null
 # extensions cant be created in single mode.
 # we will rely on the client to create the extensions if not exists.
 # $PSQL_SINGLE $PSQL_DB <<< "CREATE EXTENSION postgis; CREATE EXTENSION postgis_topology;" > /dev/null
+# just run:
+# sudo -u postgres psql $PSQL_DB -c "CREATE EXTENSION postgis; CREATE EXTENSION postgis_topology;"
 
 # TEMPLATE $PSQL_TEMPLATE ENCODING=UTF-8;
 
