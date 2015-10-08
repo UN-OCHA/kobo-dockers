@@ -10,7 +10,6 @@ RUN apt-get -qq update && \
     mkdir -p /srv/src && \
     cd /srv/src && \
     git clone https://github.com/kobotoolbox/dkobo.git -b master koboform && \
-    pip install -r /srv/src/kobocat/requirements/base.pip && \
     cd /srv/src/koboform && \
     pip install -r requirements.txt && \
     npm install bower && \
