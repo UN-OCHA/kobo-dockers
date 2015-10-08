@@ -1,15 +1,18 @@
-FROM teodorescuserban/kobo-base:latest
+FROM teodorescuserban/kobo-base-kobos:latest
 
 MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 
 RUN apt-get -qq update && \
     apt-get -qq -y install \
-        python2.7-dev \
-        libxml2 \
-        libxml2-dev \
-        libxslt1-dev \
-        nodejs && \
+        libmemcached-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    mkdir -p /etc/service/wsgi && \
-    touch /etc/service/wsgi/run
+    mkdir -p /srv/src && \
+    cd /srv/src && \
+    https://github.com/kobotoolbox/dkobo.git -b master koboform && \
+    pip install -r /srv/src/kobocat/requirements/base.pip && \
+    cd /srv/src/koboform && \
+    pip install -r requirements.txt && \
+    npm install bower && \
+    bower install --config.interactive=false --allow-root && \
+    npm install --save-dev
