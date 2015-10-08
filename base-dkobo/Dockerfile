@@ -9,7 +9,7 @@ RUN apt-get -qq update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     mkdir -p /srv/src && \
     cd /srv/src && \
-    https://github.com/kobotoolbox/dkobo.git -b master koboform && \
+    git clone https://github.com/kobotoolbox/dkobo.git -b master koboform && \
     pip install -r /srv/src/kobocat/requirements/base.pip && \
     cd /srv/src/koboform && \
     pip install -r requirements.txt && \
