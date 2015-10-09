@@ -19,6 +19,7 @@ RUN apt-get -qq update && \
     touch /etc/service/wsgi/run && \
     curl -s https://bootstrap.pypa.io/get-pip.py -o /get-pip.py && \
     python /get-pip.py && \
-    rm /get-pip.py
+    rm /get-pip.py && \
+    pip install uwsgi
 
 #        python-pip \
