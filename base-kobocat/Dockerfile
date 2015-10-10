@@ -2,16 +2,6 @@ FROM teodorescuserban/kobo-base-kobos:latest
 
 MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 
-# not sure if you really use this, but putting this in here
-# because pylibmc is at the end of base.pip
-RUN apt-get -qq update && \
-    apt-get -qq -y install \
-        libmemcached-dev \
-        qgis \
-        python-qgis && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 RUN pip install https://bitbucket.org/fomcl/savreaderwriter/downloads/savReaderWriter-3.3.0.zip#egg=savreaderwriter && \
     pip install dj-database-url && \
     mkdir -p /srv/src && \
@@ -25,7 +15,3 @@ RUN pip install https://bitbucket.org/fomcl/savreaderwriter/downloads/savReaderW
         bower \
         karma \
         grunt-cli
-
-# this leads to errors at least with pymongo
-# (pybamboo installs pymongo 2.3 which doesnt have MongoClient)
-#    pip install pybamboo && \

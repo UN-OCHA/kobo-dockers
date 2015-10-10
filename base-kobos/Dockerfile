@@ -4,6 +4,7 @@ MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 
 RUN apt-get -qq update && \
     apt-get -qq -y install \
+        libmemcached-dev \
         libpq-dev \
         libxml2 \
         libxml2-dev \
@@ -11,7 +12,9 @@ RUN apt-get -qq update && \
         nodejs \
         npm \
         postgresql-client-9.3 \
-        python2.7-dev && \
+        python2.7-dev \
+        python-qgis \
+        qgis && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     ln -s /usr/bin/nodejs /usr/bin/node && \
@@ -20,6 +23,5 @@ RUN apt-get -qq update && \
     curl -s https://bootstrap.pypa.io/get-pip.py -o /get-pip.py && \
     python /get-pip.py && \
     rm /get-pip.py && \
-    pip install uwsgi
-
-#        python-pip \
+    pip install uwsgi && \
+    useradd -s /bin/false wsgi

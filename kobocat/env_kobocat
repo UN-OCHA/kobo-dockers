@@ -2,4 +2,4 @@
 
 # kobocat specific environment variables
 export DJANGO_SETTINGS_MODULE="kobocat_settings"
-export PYTHONPATH="/home/vagrant/env:$PYTHONPATH"
+export PYTHONPATH="/srv/src:$PYTHONPATH"
