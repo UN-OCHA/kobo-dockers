@@ -2,16 +2,17 @@ FROM teodorescuserban/kobo-base-nginx:latest
 
 MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 
-RUN mv /etc/nginx /etc/nginx.original
-ADD nginx /etc/nginx
+COPY nginx_includes hrinfo.bundle.crt kobo.conf run_nginx /srv/
 
-ADD kobo.org.crt /etc/ssl/certs/
+RUN mv /srv/run_nginx /etc/service/nginx/run && \
+    mv /srv/nginx_includes /etc/nginx/ && \
+    mv /srv/hrinfo.bundle.crt /etc/nginx/ && \
+    mv /srv/kobo.conf /etc/nginx/sites-available/kobo && \
+    chmod +x /etc/service/nginx/run && \
+    rm -rf /etc/nginx/sites-enabled/* && \
+    ln -s /etc/nginx/sites-available/kobo /etc/nginx/sites-enabled/kobo
 
-ADD run /etc/service/nginx/run
-RUN chmod +x /etc/service/nginx/run
-
-EXPOSE 80
-EXPOSE 443
+EXPOSE 80 443
 
 VOLUME ["/srv/www", "/var/log/nginx", "/etc/nginx", "/tmp"]
 
