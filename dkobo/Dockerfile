@@ -8,7 +8,7 @@ COPY env_koboform init.sh koboform.ini /srv/src/
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh && \
     chmod +x /etc/service/wsgi/run
 
-VOLUME ["/srv/src"]
+VOLUME ["/srv/src/koboform"]
 
 EXPOSE 8000
 

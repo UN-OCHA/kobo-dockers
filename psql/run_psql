@@ -20,8 +20,8 @@ chown -R postgres:postgres $PSQL_DATA
 
 PSQL_SINGLE="sudo -u postgres $PSQL_BIN --single --config-file=$PSQL_CONFIG_FILE"
 
-#$PSQL_SINGLE <<< "CREATE USER $PSQL_USER WITH SUPERUSER;" > /dev/null
-$PSQL_SINGLE <<< "CREATE USER $PSQL_USER;" > /dev/null
+$PSQL_SINGLE <<< "CREATE USER $PSQL_USER WITH SUPERUSER;" > /dev/null
+# $PSQL_SINGLE <<< "CREATE USER $PSQL_USER;" > /dev/null
 $PSQL_SINGLE <<< "ALTER USER $PSQL_USER WITH PASSWORD '$PSQL_PASS';" > /dev/null
 $PSQL_SINGLE <<< "CREATE DATABASE $PSQL_DB OWNER $PSQL_USER" > /dev/null
 # extensions cant be created in single mode.
