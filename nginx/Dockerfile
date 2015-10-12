@@ -2,15 +2,15 @@ FROM teodorescuserban/kobo-base-nginx:latest
 
 MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 
-COPY nginx_includes hrinfo.bundle.crt kobo.conf run_nginx /srv/
+COPY nginx_templates/* hrinfo.bundle.crt run_nginx /srv/
 
 RUN mv /srv/run_nginx /etc/service/nginx/run && \
     chmod +x /etc/service/nginx/run && \
-    mv /srv/nginx_templates/* /etc/nginx/ && \
-    rm -rf /srv/nginx_templates && \
     mv /srv/hrinfo.bundle.crt /etc/nginx/humanitarianresponse_info.bundle.crt && \
+    mv /srv/* /etc/nginx/ && \
     rm -rf /etc/nginx/sites-enabled/* && \
-    ln -s /etc/nginx/kobo.conf /etc/nginx/sites-enabled/kobo
+    ln -s /etc/nginx/kobo.conf /etc/nginx/sites-enabled/kobo && \
+    rm -rf /etc/nginx/kobo.conf
 
 EXPOSE 80 443
 

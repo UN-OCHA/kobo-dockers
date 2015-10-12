@@ -4,7 +4,7 @@ set -e
 prefix=$KOBO_PREFIX
 domain=$KOBO_DOMAIN
 ssl_key=$KOBO_SSL_KEY
-key_file=$KOBO_NGINX_BASE_DIR/humanitarianresponse_info.key"
+key_file=$KOBO_NGINX_BASE_DIR/humanitarianresponse_info.key
 
 # construct the key
 if [ ! -f $key_file ]; then

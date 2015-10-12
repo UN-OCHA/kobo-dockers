@@ -14,6 +14,6 @@ RUN /etc/my_init.d/00_regen_ssh_host_keys.sh && \
 
 VOLUME ["/srv/src"]
 
-EXPOSE 80 8000
+EXPOSE 8000
 
 CMD ["/sbin/my_init"]
