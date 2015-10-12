@@ -27,4 +27,10 @@ RUN apt-get -qq update && \
     python /get-pip.py && \
     rm /get-pip.py && \
     pip install uwsgi && \
-    useradd -s /bin/false wsgi
+    useradd -s /bin/false -m wsgi && \
+    mkdir -p /usr/local/lib/node_modules && \
+    chown -R wsgi /usr/local/lib/node_modules && \
+    npm install -g \
+        bower \
+        karma \
+        grunt-cli

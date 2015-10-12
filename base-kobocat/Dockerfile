@@ -9,9 +9,4 @@ RUN pip install https://bitbucket.org/fomcl/savreaderwriter/downloads/savReaderW
     git clone --depth 1 https://github.com/kobotoolbox/kobocat.git -b master && \
     git clone --depth 1 https://github.com/kobotoolbox/kobocat-template.git -b master && \
     pip install -r /srv/src/kobocat/requirements/base.pip && \
-    cd /srv/src/kobocat && \
-    npm install -g --save-dev && \
-    npm install -g \
-        bower \
-        karma \
-        grunt-cli
+    chown -R wsgi /srv/src/kobocat*

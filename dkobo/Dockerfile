@@ -6,7 +6,14 @@ COPY run_wsgi /etc/service/wsgi/run
 COPY env_koboform init.sh koboform.ini /srv/src/
 
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh && \
-    chmod +x /etc/service/wsgi/run
+    chmod +x /etc/service/wsgi/run && \
+    chown -R wsgi /srv/src/koboform
+
+USER wsgi
+
+RUN cd /srv/src/koboform && \
+    bower install --config.interactive=false && \
+    npm install --save-dev
 
 VOLUME ["/srv/src/koboform"]
 

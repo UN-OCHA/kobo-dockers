@@ -6,6 +6,7 @@ COPY nginx_templates/* hrinfo.bundle.crt run_nginx /srv/
 
 RUN mv /srv/run_nginx /etc/service/nginx/run && \
     chmod +x /etc/service/nginx/run && \
+    mkdir -p /srv/www/kobocat /srv/www/dkobo && \
     mv /srv/hrinfo.bundle.crt /etc/nginx/humanitarianresponse_info.bundle.crt && \
     mv /srv/* /etc/nginx/ && \
     rm -rf /etc/nginx/sites-enabled/* && \
