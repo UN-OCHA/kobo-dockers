@@ -4,8 +4,11 @@ MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 
 RUN apt-get -qq update && \
     apt-get -qq -y install \
+        binutils \
+        gdal-bin \
         libmemcached-dev \
         libpq-dev \
+        libproj-dev \
         libxml2 \
         libxml2-dev \
         libxslt1-dev \
