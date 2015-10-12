@@ -16,7 +16,7 @@ RUN mkdir -p /srv/src && \
     cd /srv/src/koboform && \
     pip install -r requirements.txt && \
     npm install -g --save-dev && \
-    npm install -g bower
+    npm install -g bower --allow-root
 
 
 #    bower install --config.interactive=false --allow-root && \
