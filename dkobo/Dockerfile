@@ -8,10 +8,6 @@ COPY env_koboform init.sh koboform.ini /srv/src/
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh && \
     chmod +x /etc/service/wsgi/run
 
-# && \
-#    cd /srv/src/koboform && \
-#    bower install --config.interactive=false --allow-root
-
 VOLUME ["/srv/src"]
 
 EXPOSE 80 8000
