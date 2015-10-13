@@ -9,19 +9,20 @@ upstream kobocat {
 
 server {
     include ${KOBO_NGINX_BASE_DIR}/kc_http.conf;
-    server_name kc.humanitarianresponse.info;
+    server_name ${KOBO_PREFIX}kc.${KOBO_DOMAIN};
 }
 
-server {
-    include ${KOBO_NGINX_BASE_DIR}/kc_loopback.conf;
-    # Be sure that hostname specified for server_name resolves to the same
-    # address as localhost. Set it in /etc/hosts if necessary.
-    server_name kc.humanitarianresponse.info;
-}
+# commented out - it overlaps on the above one.
+#server {
+#    include ${KOBO_NGINX_BASE_DIR}/kc_loopback.conf;
+#    # Be sure that hostname specified for server_name resolves to the same
+#    # address as localhost. Set it in /etc/hosts if necessary.
+#    server_name ${KOBO_PREFIX}kc.${KOBO_DOMAIN};
+#}
 
 server {
     include ${KOBO_NGINX_BASE_DIR}/kc_https.conf;
-    server_name kc.humanitarianresponse.info;
+    server_name ${KOBO_PREFIX}kc.${KOBO_DOMAIN};
     ssl_certificate ${KOBO_NGINX_BASE_DIR}/humanitarianresponse_info.bundle.crt;
     ssl_certificate_key ${KOBO_NGINX_BASE_DIR}/humanitarianresponse_info.key;
 }
@@ -33,12 +34,12 @@ upstream koboform {
 
 server {
     include ${KOBO_NGINX_BASE_DIR}/kf_http.conf;
-    server_name kobo.humanitarianresponse.info;
+    server_name ${KOBO_PREFIX}kobo.${KOBO_DOMAIN};
 }
 
 server {
     include ${KOBO_NGINX_BASE_DIR}/kf_https.conf;
-    server_name kobo.humanitarianresponse.info;
+    server_name ${KOBO_PREFIX}kobo.${KOBO_DOMAIN};
     ssl_certificate ${KOBO_NGINX_BASE_DIR}/humanitarianresponse_info.bundle.crt;
     ssl_certificate_key ${KOBO_NGINX_BASE_DIR}/humanitarianresponse_info.key;
 }

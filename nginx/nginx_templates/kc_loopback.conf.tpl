@@ -1,4 +1,7 @@
-listen      localhost:80;
+# comented out - no use to have nginx listen on localhost :)
+#listen      localhost:80;
+# but then, why do we have this? theer must be a better way
+listen      80;
 charset     utf-8;
 access_log  ${KOBO_NGINX_LOG_DIR}/kobocat.access.log;
 error_log   ${KOBO_NGINX_LOG_DIR}/kobocat.error.log;
