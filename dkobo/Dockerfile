@@ -15,6 +15,8 @@ RUN cd /srv/src/koboform && \
     bower install --config.interactive=false && \
     npm install --save-dev
 
+USER root
+
 VOLUME ["/srv/src/koboform"]
 
 EXPOSE 8000
