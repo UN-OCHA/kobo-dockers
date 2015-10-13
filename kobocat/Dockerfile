@@ -6,7 +6,7 @@ RUN mkdir -p /etc/service/celery
 
 COPY run_wsgi /etc/service/wsgi/run
 COPY run_celery /etc/service/celery/run
-COPY env_kobocat init.sh kobocat.ini kobocat_settings.py sync_static.sh /srv/src/
+COPY env_kobocat *.sh kobocat.ini kobocat_settings.py /srv/src/
 
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh && \
     chmod +x /etc/service/wsgi/run && \
