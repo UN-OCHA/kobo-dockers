@@ -7,7 +7,7 @@ echo "Collecting static files..."
 python manage.py collectstatic -v 0 -c --noinput 
 echo "Done"
 echo "Fixing permissions..."
-chown -R wsgi /srv/srv/koboform
+chown -R wsgi /srv/src/koboform
 echo "Done."
 echo "Syncing to nginx folder..."
 rsync -aq /srv/src/kobocat/onadata/static/* /srv/static/
