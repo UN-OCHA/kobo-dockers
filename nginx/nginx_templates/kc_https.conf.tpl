@@ -14,8 +14,7 @@ ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 ssl_ciphers 'AES256+EECDH:AES256+EDH:DHE-RSA-AES128-SHA';
 
 location /static {
-   # alias ${KOBO_NGINX_KOBOCAT_BASE_DIR}/onadata/static;
-   alias ${KOBO_NGINX_KOBOCAT_BASE_DIR};
+   alias /srv/www/kobocat;
 }
 
 location / {

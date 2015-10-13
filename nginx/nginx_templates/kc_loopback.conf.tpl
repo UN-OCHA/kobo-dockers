@@ -7,8 +7,7 @@ error_log   ${KOBO_NGINX_LOG_DIR}/kobocat.error.log;
 client_max_body_size 75M;
 
 location /static {
-   # alias ${KOBO_NGINX_KOBOCAT_BASE_DIR}/onadata/static;
-   alias ${KOBO_NGINX_KOBOCAT_BASE_DIR};
+   alias /srv/www/kobocat;
 }
 
 location / {

@@ -30,7 +30,7 @@ RUN apt-get -qq update && \
     useradd -s /bin/false -m wsgi && \
     mkdir -p /usr/local/lib/node_modules && \
     chown -R wsgi /usr/local/lib/node_modules && \
-    npm install -g \
+    npm --no-color install -g \
         bower \
         karma \
         grunt-cli
