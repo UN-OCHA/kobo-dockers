@@ -3,6 +3,8 @@
 oldpwd=$(pwd)
 cd /srv/src/kobocat
 
+mkdir -p /srv/src/kobocat/onadata/static
+
 echo "Collecting static files..."
 python manage.py collectstatic -v 0 --noinput
 echo "Done"

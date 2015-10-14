@@ -7,6 +7,8 @@ python manage.py syncdb --noinput
 
 python manage.py migrate --noinput
 
+mkdir -p /srv/src/koboform/staticfiles
+
 python manage.py collectstatic --noinput -c -v 0
 grunt build_all
 #npm install yuglify
