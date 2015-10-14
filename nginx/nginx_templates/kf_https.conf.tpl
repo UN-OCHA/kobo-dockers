@@ -9,11 +9,4 @@ client_max_body_size 75M;
 ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 ssl_ciphers   'AES256+EECDH:AES256+EDH';
 
-location /static {
-    alias /srv/www/koboform;
-}
-
-location / {
-    uwsgi_pass koboform;
-    include /etc/nginx/uwsgi_params;
-}
+include ${KOBO_NGINX_BASE_DIR}/kf_include.conf;

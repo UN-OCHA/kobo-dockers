@@ -18,3 +18,6 @@ location ~ (submission|formList) {
 location / {
    return 301 https://%server_name%request_uri;
 }
+
+# or comment block above and uncomment line below if you cant use http-to-https redirection
+#include ${KOBO_NGINX_BASE_DIR}/kc_include.conf;

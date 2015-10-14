@@ -13,11 +13,4 @@ ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 # old Android doesn't support SNI and would never see it there.
 ssl_ciphers 'AES256+EECDH:AES256+EDH:DHE-RSA-AES128-SHA';
 
-location /static {
-   alias /srv/www/kobocat;
-}
-
-location / {
-   uwsgi_pass kobocat;
-   include /etc/nginx/uwsgi_params;
-}
+include ${KOBO_NGINX_BASE_DIR}/kc_include.conf;

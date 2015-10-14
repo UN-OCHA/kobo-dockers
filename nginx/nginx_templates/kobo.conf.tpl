@@ -3,7 +3,6 @@
 # for the first HTTPS server listed.
 
 upstream kobocat {
-    # server unix:///home/ubuntu/sockets/kobocat.sock;
     server ${KOBOCAT_SERVER_ADDR}:${KOBOCAT_SERVER_PORT};
 }
 
@@ -28,7 +27,6 @@ server {
 }
 
 upstream koboform {
-    # server unix:///home/ubuntu/sockets/koboform.sock;
     server ${KOBOFORM_SERVER_ADDR}:${KOBOFORM_SERVER_PORT};
 }
 
