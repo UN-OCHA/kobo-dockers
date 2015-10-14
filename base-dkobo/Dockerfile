@@ -7,4 +7,6 @@ RUN mkdir -p /srv/src && \
     git clone https://github.com/kobotoolbox/dkobo.git -b master koboform && \
     cd /srv/src/koboform && \
     pip install -r requirements.txt && \
+    npm --no-color install \
+        yuglify && \
     chown -R wsgi /srv/src/koboform
