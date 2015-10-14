@@ -5,6 +5,7 @@ MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 RUN apt-get -qq update && \
     apt-get -qq -y install \
         binutils \
+        default-jre-headless \
         gdal-bin \
         libmemcached-dev \
         libpq-dev \
