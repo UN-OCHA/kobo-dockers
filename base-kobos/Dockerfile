@@ -8,6 +8,7 @@ RUN apt-get -qq update && \
         default-jre-headless \
         gdal-bin \
         libmemcached-dev \
+        libpcre3-dev \
         libpq-dev \
         libproj-dev \
         libxml2 \
