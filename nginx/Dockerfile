@@ -3,12 +3,14 @@ FROM teodorescuserban/kobo-base-nginx:latest
 MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 
 COPY nginx_templates/* hrinfo.bundle.crt run_nginx /srv/
-
+COPY uwsgi_params /etc/nginx/u_p
 RUN mv /srv/run_nginx /etc/service/nginx/run && \
     chmod +x /etc/service/nginx/run && \
     mkdir -p /srv/www/kobocat /srv/www/dkobo && \
     mv /srv/hrinfo.bundle.crt /etc/nginx/humanitarianresponse_info.bundle.crt && \
     mv /srv/* /etc/nginx/ && \
+    mv /etc/nginx/uwsgi_params /etc/nginx/uwsgi_params.bak && \
+    mv /etc/nginx/u_p /etc/nginx/uwsgi_params && \
     rm -rf /etc/nginx/sites-enabled/* && \
     ln -s /etc/nginx/kobo.conf /etc/nginx/sites-enabled/kobo && \
     rm -rf /etc/nginx/kobo.conf
