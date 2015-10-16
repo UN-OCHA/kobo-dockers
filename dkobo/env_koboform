@@ -1,6 +1,0 @@
-#!/bin/sh
-
-#koboform specific environment variables
-export DJANGO_SETTINGS_MODULE="dkobo.settings"
-export PATH="$PATH:./node_modules/.bin"
-export PYTHONPATH="/srv/src:$PYTHONPATH"
