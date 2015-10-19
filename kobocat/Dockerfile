@@ -14,7 +14,7 @@ RUN /etc/my_init.d/00_regen_ssh_host_keys.sh && \
     echo "db:*:*:kobo:kobo" > /root/.pgpass && \
     chmod 600 /root/.pgpass
 
-VOLUME ["/srv/src/kobocat", "/srv/src/kobocat-template", "/tmp"]
+VOLUME ["/srv/src/kobocat", "/srv/src/kobocat/onadata/media", "/srv/src/kobocat-template", "/tmp"]
 
 EXPOSE 8000
 
