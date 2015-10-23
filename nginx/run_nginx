@@ -28,12 +28,18 @@ if [ ! -f $crt_file ]; then
         echo "$i" | sed -e 's/\"//' >> $crt_file
         if [ "$(echo $i | wc -m)" -lt "65" ]; then
             echo "-----END CERTIFICATE-----" >> $crt_file
-            echo "-----BEGIN CERTIFICATE-----" > $crt_file
+            echo "-----BEGIN CERTIFICATE-----" >> $crt_file
         fi
     done
     echo "-----END CERTIFICATE-----" >> $crt_file
 else
     echo "File already there. Skipping..."
+fi
+
+if [ "$(tail -n 3 $crt_file | grep -c CERTIFICATE)" -eq "3" ]; then
+    # empty cert bug. lets fix it.
+    sed -i '$ d' $crt_file
+    sed -i '$ d' $crt_file
 fi
 
 for template in $(find /etc/nginx -iname '*tpl'); do
