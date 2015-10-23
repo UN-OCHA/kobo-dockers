@@ -22,8 +22,8 @@ server {
 server {
     include ${KOBO_NGINX_BASE_DIR}/kc_https.conf;
     server_name ${KOBO_PREFIX}kc.${KOBO_DOMAIN};
-    ssl_certificate ${KOBO_NGINX_BASE_DIR}/humanitarianresponse_info.bundle.crt;
-    ssl_certificate_key ${KOBO_NGINX_BASE_DIR}/humanitarianresponse_info.key;
+    ssl_certificate ${KOBO_NGINX_BASE_DIR}/ssl.crt;
+    ssl_certificate_key ${KOBO_NGINX_BASE_DIR}/ssl.key;
 }
 
 upstream koboform {
@@ -38,6 +38,6 @@ server {
 server {
     include ${KOBO_NGINX_BASE_DIR}/kf_https.conf;
     server_name ${KOBO_PREFIX}kobo.${KOBO_DOMAIN};
-    ssl_certificate ${KOBO_NGINX_BASE_DIR}/humanitarianresponse_info.bundle.crt;
-    ssl_certificate_key ${KOBO_NGINX_BASE_DIR}/humanitarianresponse_info.key;
+    ssl_certificate ${KOBO_NGINX_BASE_DIR}/ssl.crt;
+    ssl_certificate_key ${KOBO_NGINX_BASE_DIR}/ssl.key;
 }

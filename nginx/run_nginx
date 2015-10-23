@@ -4,7 +4,9 @@ set -e
 prefix=$KOBO_PREFIX
 domain=$KOBO_DOMAIN
 ssl_key=$KOBO_SSL_KEY
-key_file=$KOBO_NGINX_BASE_DIR/humanitarianresponse_info.key
+ssl_crt=$KOBO_SSL_CRT
+key_file=$KOBO_NGINX_BASE_DIR/ssl.key
+crt_file=$KOBO_NGINX_BASE_DIR/ssl.crt
 
 # construct the key
 if [ ! -f $key_file ]; then
@@ -14,6 +16,22 @@ if [ ! -f $key_file ]; then
         echo "$i" | sed -e 's/\"//' >> $key_file
     done
     echo "-----END RSA PRIVATE KEY-----" >> $key_file
+else
+    echo "File already there. Skipping..."
+fi
+
+# construct the crt
+if [ ! -f $crt_file ]; then
+    echo "File not found. Creating..."
+    echo "-----BEGIN CERTIFICATE-----" > $crt_file
+    for i in $ssl_crt; do
+        echo "$i" | sed -e 's/\"//' >> $crt_file
+        if [ "$(echo $i | wc -m)" -lt "65" ]; then
+            echo "-----END CERTIFICATE-----" >> $crt_file
+            echo "-----BEGIN CERTIFICATE-----" > $crt_file
+        fi
+    done
+    echo "-----END CERTIFICATE-----" >> $crt_file
 else
     echo "File already there. Skipping..."
 fi
