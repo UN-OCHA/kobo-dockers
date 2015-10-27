@@ -14,10 +14,6 @@ RUN mkdir -p /srv/src && \
     git clone https://github.com/kobotoolbox/dkobo.git -b master koboform && \
     cd /srv/src/koboform && \
     pip install -r requirements.txt && \
-    pip install \
-        boto==2.1.1 \
-        django-storages==1.1.4 \
-        django-ses==0.4.0 && \
     npm --no-color install \
         yuglify && \
     chown -R wsgi /srv/src/koboform

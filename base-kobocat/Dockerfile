@@ -9,8 +9,5 @@ RUN pip install https://bitbucket.org/fomcl/savreaderwriter/downloads/savReaderW
     git clone --depth 1 https://github.com/kobotoolbox/kobocat.git -b master && \
     git clone --depth 1 https://github.com/kobotoolbox/kobocat-template.git -b master && \
     pip install -r /srv/src/kobocat/requirements/base.pip && \
-    pip install \
-        boto==2.1.1 \
-        django-storages==1.1.4 \
-        django-ses==0.4.0 && \
+    pip install -r /srv/src/kobocat/requirements/s3.pip && \
     chown -R wsgi /srv/src/kobocat*
