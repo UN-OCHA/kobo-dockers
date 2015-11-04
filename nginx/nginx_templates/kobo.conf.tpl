@@ -1,3 +1,11 @@
+
+# enable maintenance
+map %host %maintenance {
+    # default "yes";
+    default "no";
+}
+
+
 # The ORDER of the servers is important!
 # Dumb, non-SNI clients will receive the certificate
 # for the first HTTPS server listed.
