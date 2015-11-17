@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+cd /srv/src/koboform
+exec gunicorn dkobo.wsgi:application -c /srv/gunicorn_conf.py

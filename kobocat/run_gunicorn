@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+cd /srv/src/kobocat
+exec gunicorn onadata.apps.main.wsgi:application -c /srv/gunicorn_conf.py

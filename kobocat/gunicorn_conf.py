@@ -1,0 +1,10 @@
+user = 'www-data'
+group = 'www-data'
+bind = '0.0.0.0:8000'
+workers = 12
+accesslog = '/var/log/wsgi/kc.access.log'
+errorlog = '/var/log/wsgi/kc.error.log'
+loglevel = 'warning'
+timeout = 120
+graceful_timeout = 90
+#worker_class = 'gevent'

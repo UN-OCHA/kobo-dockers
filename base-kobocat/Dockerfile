@@ -11,4 +11,4 @@ RUN pip install https://bitbucket.org/fomcl/savreaderwriter/downloads/savReaderW
     pip install -r /srv/src/kobocat/requirements/base.pip && \
     pip install -r /srv/src/kobocat/requirements/s3.pip && \
     pip install raven==5.2.0 && \
-    chown -R wsgi /srv/src/kobocat*
+    chown -R www-data /srv/src/kobocat*
