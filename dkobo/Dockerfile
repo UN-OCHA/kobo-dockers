@@ -3,8 +3,9 @@ FROM teodorescuserban/kobo-base-dkobo:latest
 MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 
 #COPY *.sh koboform.ini /srv/src/
+
+COPY *.sh gunicorn_conf.py /srv/
 COPY run_gunicorn /etc/service/wsgi/run
-COPY gunicorn_conf.py /srv/
 
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh && \
     chmod +x /etc/service/wsgi/run && \
