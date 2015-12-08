@@ -38,13 +38,20 @@ upstream koboform {
     server ${KOBOFORM_SERVER_ADDR}:${KOBOFORM_SERVER_PORT};
 }
 
+upstream kpi {
+    server ${KPI_SERVER_ADDR}:${KPI_SERVER_PORT};
+}
+
 server {
     include ${KOBO_NGINX_BASE_DIR}/kf_http.conf;
     server_name ${KOBO_PREFIX}kobo.${KOBO_DOMAIN};
+    # Only one redirect to HTTPS per hostname is required, but more
+    # configuration would be needed to serve KPI over HTTP
 }
 
 server {
     include ${KOBO_NGINX_BASE_DIR}/kf_https.conf;
+    include ${KOBO_NGINX_BASE_DIR}/kpi_https.conf;
     server_name ${KOBO_PREFIX}kobo.${KOBO_DOMAIN};
     ssl_certificate ${KOBO_NGINX_BASE_DIR}/ssl.crt;
     ssl_certificate_key ${KOBO_NGINX_BASE_DIR}/ssl.key;
