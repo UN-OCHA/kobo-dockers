@@ -44,9 +44,8 @@ upstream kpi {
 
 server {
     include ${KOBO_NGINX_BASE_DIR}/kf_http.conf;
+    include ${KOBO_NGINX_BASE_DIR}/kpi_http.conf;
     server_name ${KOBO_PREFIX}kobo.${KOBO_DOMAIN};
-    # Only one redirect to HTTPS per hostname is required, but more
-    # configuration would be needed to serve KPI over HTTP
 }
 
 server {
