@@ -1,8 +1,8 @@
 # no `listen`, etc. for now, because that's done by the dkobo configuration,
 # which is included before this
 #listen      80;
-#access_log  ${KOBO_NGINX_LOG_DIR}/koboform.access.log;
-#error_log   ${KOBO_NGINX_LOG_DIR}/koboform.error.log;
+#access_log  ${KOBO_NGINX_LOG_DIR}/kpi.access.log;
+#error_log   ${KOBO_NGINX_LOG_DIR}/kpi.error.log;
 
 # We can unconditionally redirect KPI to HTTPS since ODK Collect never
 # touches it
