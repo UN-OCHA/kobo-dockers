@@ -30,8 +30,6 @@ RUN apt-get -qq update && \
     pip install gunicorn && \
     mkdir -p /etc/service/wsgi && \
     touch /etc/service/wsgi/run && \
-    mkdir -p /var/www && \
-    chown www-data /var/www && \
     mkdir -p /usr/local/lib/node_modules && \
     chown -R www-data /usr/local/lib/node_modules && \
     npm --no-color install -g \
