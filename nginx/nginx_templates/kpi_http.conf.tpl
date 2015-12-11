@@ -4,9 +4,9 @@
 #access_log  ${KOBO_NGINX_LOG_DIR}/kpi.access.log;
 #error_log   ${KOBO_NGINX_LOG_DIR}/kpi.error.log;
 
-# We can unconditionally redirect KPI to HTTPS since ODK Collect never
-# touches it
-return 301 https://%server_name%request_uri;
+include ${KOBO_NGINX_BASE_DIR}/kpi_include.conf;
 
-# or comment the line above and uncomment line below if you cant use http-to-https redirection
-#include ${KOBO_NGINX_BASE_DIR}/kpi_include.conf;
+# Comment out the `include` above and uncomment the `return` below to redirect
+# HTTP traffic to HTTPS. It's okay to unconditionally redirect KPI to HTTPS
+# since ODK Collect never touches it
+#return 301 https://%server_name%request_uri;

@@ -14,10 +14,10 @@ location ~ (submission|formList) {
    include /etc/nginx/uwsgi_params;
 }
 
-# Redirect all other requests to HTTPS
-location / {
-   return 301 https://%server_name%request_uri;
-}
+include ${KOBO_NGINX_BASE_DIR}/kc_include.conf;
 
-# or comment block above and uncomment line below if you cant use http-to-https redirection
-#include ${KOBO_NGINX_BASE_DIR}/kc_include.conf;
+# Comment out the `include` above and uncomment the `location` block below to
+# redirect all non-ODK-Collect requests to HTTPS
+#location / {
+#   return 301 https://%server_name%request_uri;
+#}
