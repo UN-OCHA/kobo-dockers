@@ -9,14 +9,6 @@ python manage.py syncdb --noinput
 
 python manage.py migrate --noinput
 
-mkdir -p /srv/src/koboform/staticfiles
-
-python manage.py collectstatic --noinput -c -v 0
-grunt build_all
-#npm install yuglify
-python manage.py compress
-mkdir -p jsapp/CACHE
-cp -R jsapp/components/fontawesome/fonts jsapp/CACHE/fonts
-python manage.py collectstatic --noinput -v 0
+source "$oldpwd/prepare_static_files.sh"
 
 cd $oldpwd
