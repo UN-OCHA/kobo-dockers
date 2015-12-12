@@ -24,19 +24,16 @@ RUN apt-get -qq update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     ln -s /usr/bin/nodejs /usr/bin/node && \
+    mkdir -p /etc/service/wsgi && \
+    touch /etc/service/wsgi/run && \
     curl -s https://bootstrap.pypa.io/get-pip.py -o /get-pip.py && \
     python /get-pip.py && \
     rm /get-pip.py && \
-    pip install gunicorn && \
-    mkdir -p /etc/service/wsgi && \
-    touch /etc/service/wsgi/run && \
-    mkdir -p /var/www && \
-    chown www-data /var/www && \
+    pip install uwsgi && \
+    useradd -s /bin/false -m wsgi && \
     mkdir -p /usr/local/lib/node_modules && \
-    chown -R www-data /usr/local/lib/node_modules && \
+    chown -R wsgi /usr/local/lib/node_modules && \
     npm --no-color install -g \
         bower \
         karma \
         grunt-cli
-
-#    pip install uwsgi && \

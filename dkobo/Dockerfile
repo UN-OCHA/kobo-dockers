@@ -2,16 +2,14 @@ FROM teodorescuserban/kobo-base-dkobo:latest
 
 MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 
-#COPY *.sh koboform.ini /srv/src/
-
-COPY *.sh gunicorn_conf.py /srv/
-COPY run_gunicorn /etc/service/wsgi/run
+COPY run_wsgi /etc/service/wsgi/run
+COPY *.sh koboform.ini /srv/src/
 
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh && \
     chmod +x /etc/service/wsgi/run && \
-    chown -R www-data /srv/src/koboform
+    chown -R wsgi /srv/src/koboform
 
-USER www-data
+USER wsgi
 
 RUN cd /srv/src/koboform && \
     bower install --config.interactive=false && \
@@ -19,7 +17,7 @@ RUN cd /srv/src/koboform && \
 
 USER root
 
-VOLUME ["/srv/src/koboform", "/var/log/wsgi"]
+VOLUME ["/srv/src/koboform"]
 
 EXPOSE 8000
 

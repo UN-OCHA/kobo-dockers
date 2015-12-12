@@ -6,10 +6,10 @@ oldpwd=$(pwd)
 cd /srv/src/koboform
 
 echo "Collecting static files..."
-python manage.py collectstatic -v 0 --noinput
+source "$oldpwd/prepare_static_files.sh"
 echo "Done"
 echo "Fixing permissions..."
-chown -R www-data /srv/src/koboform
+chown -R wsgi /srv/src/koboform
 echo "Done."
 echo "Syncing to nginx folder..."
 rsync -aq  /srv/src/koboform/staticfiles/* /srv/static/
