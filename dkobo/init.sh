@@ -9,6 +9,4 @@ python manage.py syncdb --noinput
 
 python manage.py migrate --noinput
 
-source "$oldpwd/prepare_static_files.sh"
-
 cd $oldpwd
