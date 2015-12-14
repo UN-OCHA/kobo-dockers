@@ -8,4 +8,6 @@ RUN apt-get -qq update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     mkdir -p /etc/service/rabbit && \
-    touch /etc/service/rabbit/run
+    touch /etc/service/rabbit/run && \
+    mkdir -p /etc/service/rabbit-configure && \
+    touch /etc/service/rabbit-configure/run
