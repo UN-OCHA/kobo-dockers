@@ -10,6 +10,8 @@ client_max_body_size 75M;
 # further ado, since ODK Collect makes requests containing those terms and
 # does not support any kind of redirection.
 location ~ (submission|formList) {
+   uwsgi_read_timeout 130;
+   uwsgi_send_timeout 130;
    uwsgi_pass kobocat;
    include /etc/nginx/uwsgi_params;
 }

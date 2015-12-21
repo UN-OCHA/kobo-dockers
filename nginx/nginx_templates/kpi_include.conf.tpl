@@ -28,6 +28,8 @@ location /forms/ {
     if (%maintenance = "yes") {
         return 418;
     }
+    uwsgi_read_timeout 130;
+    uwsgi_send_timeout 130;
     uwsgi_pass kpi;
     include /etc/nginx/uwsgi_params;
 }
