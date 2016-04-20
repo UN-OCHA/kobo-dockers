@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# copyleft 2015 Serban Teodorescu <teodorescu.serban@gmail.com> 
-
 # creates the additional required index for kobo mongo
 
 DB=formhub
