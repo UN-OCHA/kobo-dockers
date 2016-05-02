@@ -11,4 +11,4 @@ RUN apk add mongodb-tools \
 
 VOLUME ["/srv/backup"]
 
-ENTRYPOINT ["/usr/bin/python3 /kobobackup.py"]
+#ENTRYPOINT ["/usr/bin/python3 /kobobackup.py"]
