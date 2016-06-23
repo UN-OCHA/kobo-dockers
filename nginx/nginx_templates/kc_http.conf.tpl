@@ -16,6 +16,8 @@ location ~ (submission|formList) {
    include /etc/nginx/uwsgi_params;
 }
 
+include ${KOBO_NGINX_BASE_DIR}/redirect_to_https.conf;
+
 include ${KOBO_NGINX_BASE_DIR}/kc_include.conf;
 
 # Comment out the `include` above and uncomment the `location` block below to
