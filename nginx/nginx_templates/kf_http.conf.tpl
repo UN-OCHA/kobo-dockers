@@ -2,6 +2,8 @@ listen      80;
 access_log  ${KOBO_NGINX_LOG_DIR}/koboform.access.log;
 error_log   ${KOBO_NGINX_LOG_DIR}/koboform.error.log;
 
+include ${KOBO_NGINX_BASE_DIR}/redirect_to_https.conf;
+
 include ${KOBO_NGINX_BASE_DIR}/kf_include.conf;
 
 # Comment out the `include` above and uncomment the `return` below to redirect
