@@ -5,6 +5,9 @@ map %host %maintenance {
     default "no";
 }
 
+# logs the real ip when load balancer / reverse proxy is used.
+set_real_ip_from 0.0.0.0/0;
+real_ip_header X-Forwarded-For;
 
 # The ORDER of the servers is important!
 # Dumb, non-SNI clients will receive the certificate
