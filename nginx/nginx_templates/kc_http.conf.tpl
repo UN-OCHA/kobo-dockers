@@ -30,6 +30,7 @@ include ${KOBO_NGINX_BASE_DIR}/redirect_to_https.conf;
 # stops logging the health checks requests
 location = /static/ping {
     access_log off;
+    alias /srv/www/kobocat;
 }
 
 location /static {
