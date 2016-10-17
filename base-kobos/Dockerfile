@@ -15,6 +15,7 @@ RUN apt-get -qq update && \
         libxml2-dev \
         libxslt1-dev \
         libjpeg-dev \
+        libffi-dev \
         nodejs \
         npm \
         postgresql-client-9.3 \
