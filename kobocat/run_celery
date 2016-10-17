@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-CELERYD_OPTIONS='--loglevel=DEBUG --time-limit=900 --maxtasksperchild=5'
+CELERYD_OPTIONS='--loglevel=DEBUG'
 
 cd /srv/src/kobocat
 
