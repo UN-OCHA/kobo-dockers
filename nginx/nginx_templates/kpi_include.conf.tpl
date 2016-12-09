@@ -28,6 +28,10 @@ location /forms/ {
     if (%maintenance = "yes") {
         return 418;
     }
+
+    # max upload size
+    client_max_body_size 75M;
+
     uwsgi_read_timeout 130;
     uwsgi_send_timeout 130;
     uwsgi_pass kpi;
