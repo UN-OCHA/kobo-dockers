@@ -1,13 +1,6 @@
-FROM teodorescuserban/kobo-base-kobos:latest
+FROM unocha/kobo-base-kobos:latest
 
 MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
-
-# moved to base-kobos
-#RUN apt-get -qq update && \
-#    apt-get -qq -y install \
-#        default-jre-headless && \
-#    apt-get clean && \
-#    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 
 RUN mkdir -p /srv/src && \
     cd /srv/src && \

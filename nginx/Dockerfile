@@ -1,4 +1,4 @@
-FROM teodorescuserban/kobo-base-nginx:latest
+FROM unocha/kobo-base-nginx:latest
 
 MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 

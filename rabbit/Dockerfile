@@ -1,4 +1,4 @@
-FROM teodorescuserban/kobo-base-rabbit:latest
+FROM unocha/kobo-base-rabbit:latest
 
 MAINTAINER Serban Teodorescu, teodorescu.serban@gmail.com
 
