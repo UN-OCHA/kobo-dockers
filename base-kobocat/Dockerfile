@@ -10,6 +10,6 @@ RUN pip install https://bitbucket.org/fomcl/savreaderwriter/downloads/savReaderW
     git clone --depth 1 https://github.com/kobotoolbox/kobocat-template.git -b master && \
     pip install -r /srv/src/kobocat/requirements/base.pip && \
     pip install -r /srv/src/kobocat/requirements/s3.pip && \
-    pip install raven==5.2.0 \
+    pip install raven==5.2.0 && \
     pip install newrelic && \
     chown -R wsgi /srv/src/kobocat*
