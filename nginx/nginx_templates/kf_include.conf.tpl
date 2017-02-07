@@ -1,3 +1,5 @@
+include /etc/nginx/real_ip.conf;
+
 location /static {
     alias /srv/www/koboform;
 }
