@@ -1,3 +1,5 @@
+include /etc/nginx/real_ip.conf;
+
 location /forms/static {
     alias /srv/www/kpi;
 
