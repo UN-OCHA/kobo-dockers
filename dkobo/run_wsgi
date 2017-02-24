@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-[ -z "$NEW_RELIC_APP_NAME"     ] && export NEW_RELIC_APP_NAME="KoboForm"
+[ -z "$NEW_RELIC_APP_NAME"     ] && export NEW_RELIC_APP_NAME="KoBoForm Legacy"
 [ -z "$NEW_RELIC_ENABLED"      ] && export NEW_RELIC_ENABLED=false
 [ -z "$NEW_RELIC_LICENSE_KEY"  ] && export NEW_RELIC_LICENSE_KEY="LICENSE"
 
