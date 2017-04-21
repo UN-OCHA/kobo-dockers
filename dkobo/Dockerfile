@@ -19,7 +19,7 @@ RUN cd /srv/src/koboform && \
 
 USER root
 
-VOLUME ["/srv/src/koboform"]
+#VOLUME ["/srv/src/koboform"]
 
 EXPOSE 8000
 
