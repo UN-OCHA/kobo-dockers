@@ -17,7 +17,8 @@ RUN /etc/my_init.d/00_regen_ssh_host_keys.sh && \
     chown wsgi /var/log/kobocat
 
 #VOLUME ["/srv/src/kobocat", "/srv/src/kobocat/onadata/media", "/srv/src/kobocat-template", "/tmp"]
-VOLUME ["/srv/src/kobocat/onadata/media", "/srv/src/kobocat-template", "/tmp"]
+#VOLUME ["/srv/src/kobocat/onadata/media", "/srv/src/kobocat-template", "/tmp"]
+VOLUME ["/tmp"]
 
 EXPOSE 8000
 
