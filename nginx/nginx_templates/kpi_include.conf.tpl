@@ -37,5 +37,6 @@ location /forms/ {
     uwsgi_read_timeout 130;
     uwsgi_send_timeout 130;
     uwsgi_pass kpi;
+    uwsgi_param HTTP_X_FORWARDED-FOR $proxy_add_x_forwarded_for;
     include /etc/nginx/uwsgi_params;
 }
